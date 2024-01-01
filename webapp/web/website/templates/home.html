@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Our Project on Predicting Undernourishment in Albania</h1>
+
+<section>
+    <h2>Problem Statement</h2>
+    <p>How can we predict the prevalence of undernourishment in Albania, thereby offering a comprehensive evaluation of the country's food security status, utilizing a comprehensive dataset encompassing economic factors, environmental factors, agricultural dynamics, and sociopolitical factors? Is it increasing or decreasing over the years? What is the most contributing factor?</p>
+</section>
+
+<section>
+    <h2>What is Food Security?</h2>
+    <p>Food security is not just about having enough food; it's about ensuring that all people have consistent access to sufficient, safe, and nutritious food that meets their dietary needs for an active and healthy life. In Albania, this challenge is multifaceted, influenced by agricultural productivity, economic stability, environmental conditions, and sociopolitical dynamics.</p>
+</section>
+
+<section>
+    <h2>About Our Project</h2>
+    <p>Our project aims to predict the prevalence of undernourishment in Albania, offering a comprehensive evaluation of the country's food security status. We're using a detailed dataset that encapsulates a wide range of factors, from economic and environmental conditions to agricultural dynamics and sociopolitical indicators. By examining these diverse elements, we can gain a holistic understanding of the factors that contribute to food security in Albania and identify key areas for intervention and improvement.</p>
+</section>
+
+<section>
+    <h2>Analysis and Prediction</h2>
+    <p>Here's a breakdown of the top factors affecting Albania's food security. The top 5 factors the government should consider shifting their policy or pay more close attention to are:</p>
+    <!-- Insert your bar chart image here -->
+    <img src="{{url_for('static', filename='factors_bar_chart.png')}}" alt="Bar Chart of Top Factors Affecting Food Security" style="max-width:100%;height:auto;">
+    <ul>
+        <li>Imports: Albania are overly reliant on imports as their food resource which are very suspectible to price increase and volaity (as we have seen from the Ukriane War and COVID-19). Hence they would have to shift their policies and help to advocate for self dependency and increase the amount of local crop productions and yield for local use as we can see from factor 2 and 4.</li>
+        <li>Crop production level and area.</li>
+        <li>GDP per capita.</li>
+        <li>Precipitation.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Future Forecasting</h2>
+    <img src="{{url_for('static', filename='individual_forecast.png')}}" alt="Forecasting Graph" style="max-width:100%;height:auto;">
+    <p>These graphs present the forecasted trends of GDP, imports, and crop yield from 2023 to 2100, derived using a linear regression model. These results are then used to make future forecasting of the prevelence of undernourishment in Albania to the year 2100.</p>
+    <!-- Insert your graph image here -->
+    <img src="{{url_for('static', filename='future_forecasting.png')}}" alt="Forecasting Graph" style="max-width:100%;height:auto;">
+    <p>Our model predicts that the undernourishment in Albania will gradually decrease over the years. However, if the trend for GDP, Import levels and Crop Yield do not improve and stays in the same trend, they will not be able to reach the UN's goal of ZERO percent by 2030.</p>
+</section>
+
+<section>
+    <h2>Interactive Prediction Tool</h2>
+    <p>Explore our predictive model and see how changes in GDP, import levels, and crop yields could impact the prevalence of undernourishment in Albania.</p>
+    <a href="/prediction" class="btn btn-primary">Go to Prediction Tool</a>
+    <p>This tool will enable the Albanian government to forecast the prevalence of undernourishment for any given year, based on these variables. By understanding the impact of these factors, policymakers can make informed decisions about which areas to focus on, adjusting policies to achieve desired levels of undernourishment reduction in a specific timeframe.</p>
+</section>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction History{% endblock %}
+
+{% block content %}
+<h2 align="center">Prediction History</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Year</th>
+      <th scope="col">GDP per Capita</th>
+      <th scope="col">Import Ratio</th>
+      <th scope="col">Crop Yield</th>
+      <th scope="col">Predicted Undernourishment</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in history %}
+    <tr>
+      <th scope="row">{{ record.id }}</th>
+      <td>{{ record.year }}</td>
+      <td>{{ record.gdp }}</td>
+      <td>{{ record.imp }}</td>
+      <td>{{ record.crop }}</td>
+      <td>{{ record.prediction }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

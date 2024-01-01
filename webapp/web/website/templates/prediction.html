@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction{% endblock %}
+
+{% block content %}
+<form method="POST" action='/prediction'>
+    <h3 align="center">Predict Albania's Undernourishment Rate</h3>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="text" class="form-control" id="year" name="year" placeholder="Enter the year you want to predict" />
+    </div>
+    <div class="form-group">
+      <label for="GDP">GDP per capita</label>
+      <input type="text" class="form-control" id="GDP" name="GDP" placeholder="Enter the predicted GDP per capita of that year in US$" />
+    </div>
+    <div class="form-group">
+      <label for="import">Import</label>
+      <input type="text" class="form-control" id="import" name="import" placeholder="Enter the predicted ratio of food import of the year (1-100)" />
+    </div>
+    <div class="form-group">
+      <label for="crop">Crop Yield</label>
+      <input type="text" class="form-control" id="crop" name="crop" placeholder="Enter the predicted annual crop yield of that year (in hg/ha)" />
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+
+
+  {% if prediction_value %}
+    <h3>Prediction Result:</h3>
+    <p>{{ prediction_value }}</p>
+
+    <!-- start -->
+    <div style="border: 1px solid #ccc; height: 20px; width: 100%; position: relative; background-color: #fff;">
+        <div style="height: 100%; width: {{ 100 - difference }}%; background-color: {{ status_color }};"></div>
+        <span style="position: absolute; left: 0; top: 20px;">100%</span> <!-- Left label -->
+        <span style="position: absolute; right: 0; top: 20px;">0% (UN's goal)</span> <!-- Right label -->
+    </div>
+
+
+    <p style="color: black; margin-top: 20px;">{{ status_message }}</p>
+    <!-- end -->
+  {% endif %}
+  
+  
+  {% if graph_url %}
+    <h3>Prediction Graph:</h3>
+    <img src="{{ graph_url }}" alt="Prediction Graph">
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+
+
+{% endblock %}

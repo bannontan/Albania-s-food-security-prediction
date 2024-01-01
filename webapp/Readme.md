@@ -3,13 +3,13 @@
 ### Clone the Repository
 ```shell
 cd Downloads
-git clone https://github.com/Data-Driven-World/d2w_mini_projects
+git clone https://github.com/Avitra2002/Albania-s-food-security-prediction.git
 ```
 
 ### Create and Activate a Virtual Environment
 Unix/MacOS:
 ```shell
-$ cd ~/Downloads/d2w_mini_projects/mp_sort
+$ cd ~/Downloads/Albania-s-food-security-prediction/webapp/web
 ```
 
 First make sure that you have installed `pipenv` package.
